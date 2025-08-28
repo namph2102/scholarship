@@ -10,6 +10,7 @@ import {
 import type { Route } from "./+types/root";
 import "./app.css";
 import Header from "./layouts/header";
+import { generateMeta } from "./utils/heldper/generate-meta";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -30,6 +31,14 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        {generateMeta({
+          title: "Học Bổng Trung Quốc 2024 - Đăng Ký & Hướng Dẫn Chi Tiết",
+          description:
+            "Thông tin học bổng Trung Quốc 2024, hướng dẫn đăng ký học bổng CSC, học bổng chính phủ Trung Quốc, học bổng đại học Bắc Kinh, Thanh Hoa. Tư vấn du học Trung Quốc miễn phí.",
+          keywords:
+            "học bổng Trung Quốc, học bổng CSC, du học Trung Quốc, học bổng chính phủ Trung Quốc, học bổng đại học Bắc Kinh, học bổng đại học Thanh Hoa, đăng ký học bổng Trung Quốc, tư vấn du học Trung Quốc, học bổng thạc sĩ Trung Quốc, học bổng tiến sĩ Trung Quốc",
+          imageUrl: "/bg.webp",
+        })}
         <Meta />
         <Links />
       </head>
