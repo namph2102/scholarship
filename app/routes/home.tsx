@@ -1,12 +1,18 @@
+import Home from "~/pages/home";
 import type { Route } from "./+types/home";
+import { contactInfo } from "~/utils/constants/layout";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "New React Router App" },
-    { name: "description", content: "Welcome to React Router!" },
+    { title: contactInfo.title },
+    { name: "description", content: contactInfo.subtitle },
+    {
+      name: "keywords",
+      content: "du học trung quốc, china trung học, du học trung học",
+    },
   ];
 }
 
-export default function Home() {
-  return <div>Home Route</div>;
+export default function HomePage() {
+  return <Home />;
 }

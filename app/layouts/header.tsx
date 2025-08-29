@@ -2,60 +2,37 @@ import {
   MapPin,
   Mail,
   Phone,
-  ChevronDown,
-  ShoppingBag,
-  Grid3X3,
-  ArrowUpRight,
   Headphones,
   Facebook,
-  Twitter,
-  Instagram,
   Send,
-  MailOpen,
   X,
-  Menu,
   AlignRight,
 } from "lucide-react";
 import { Link } from "react-router";
-import { Button } from "~/components/ui/button";
-
-const contactInfo = {
-  address: "127 Đông Hưng Thuận, Quận 12, Hồ Chí Minh, Việt Nam",
-  email: "namph2102@gmail.com",
-  phone: "0877 666 9990",
-  title: "New life",
-  subtitle: "Du học trong tầm tay",
-};
-const navItems = [
+import Logo from "~/components/logo";
+import { contactInfo, navItems } from "~/utils/constants/layout";
+export const socialItems = [
   {
-    name: "Trang chủ",
-    to: "/",
+    name: "Facebook",
+    link: "https://www.facebook.com/namhoai2102",
+    icon: <Facebook className="size-5" />,
+  },
+  {
+    name: "Email",
+    link: "https://www.facebook.com/namhoai2102",
+    icon: <Mail className="size-5" />,
   },
 
   {
-    name: "Chương trình học",
-    to: "/about",
+    name: "Phone",
+    link: "https://www.facebook.com/namhoai2102",
+    icon: <Phone className="size-5" />,
   },
 
   {
-    name: "Lý do",
-    to: "/causes",
-  },
-  {
-    name: "FAQ",
-    to: "/faq",
-  },
-  {
-    name: "Về chúng tôi",
-    to: "/team",
-  },
-  {
-    name: "Tin tức",
-    to: "/event",
-  },
-  {
-    name: "Liên hệ",
-    to: "/contact",
+    name: "Facebook",
+    link: "https://www.facebook.com/namhoai2102",
+    icon: <Send className="size-5" />,
   },
 ];
 function NavbarMobile() {
@@ -74,25 +51,7 @@ function NavbarMobile() {
             {/* Top Section - Logo and Close Button */}
             <div className="flex items-center justify-between mb-8">
               {/* Logo */}
-              <div className="flex items-center space-x-3">
-                <div className="w-12 h-12 bg-gradient-to-br from-yellow-400 to-teal-500 rounded-full flex items-center justify-center">
-                  <div className="w-8 h-8 relative">
-                    <img
-                      src="/flag.png"
-                      alt="logo"
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                </div>
-                <div>
-                  <h1 className="text-2xl font-bold text-green-800">
-                    {contactInfo.title}
-                  </h1>
-                  <p className="text-sm text-gray-500">
-                    {contactInfo.subtitle}
-                  </p>
-                </div>
-              </div>
+              <Logo />
 
               {/* Close Button */}
               <button className="text-amber-700 hover:text-amber-800 transition-colors">
@@ -102,20 +61,20 @@ function NavbarMobile() {
               </button>
             </div>
 
-            {/* Navigation List */}
+            {/* Navigation List Mobile */}
             <nav className="flex-1 space-y-6">
               {navItems.map((item, index) => (
                 <Link
                   to={item.to}
                   key={`${index}-${item.name}`}
-                  className="block text-gray-800 hover:text-green-600 transition-colors"
+                  className="block text-[var(--base-color)] hover:text-[var(--template-color)] transition-colors"
                 >
                   {item.name}
                 </Link>
               ))}
             </nav>
 
-            {/* Donate Now Button */}
+            {/* register Now Button */}
             <div className="mb-8">
               <button className="w-full bg-yellow-400 text-gray-800 py-4 px-6 rounded-lg hover:bg-yellow-500 transition-colors flex items-center justify-center space-x-2 font-medium">
                 <span>Đăng ký tư vấn</span>
@@ -125,30 +84,17 @@ function NavbarMobile() {
 
             {/* Social Media Icons */}
             <div className="flex justify-center space-x-4">
-              <a
-                className="text-white hover:bg-yellow-400 hover:text-green-950 transition-colors bg-green-700  flex justify-center items-center ease-in duration-300 rounded-full p-3"
-                href="https://www.facebook.com/namhoai2102"
-              >
-                <Facebook className="size-5" />
-              </a>
-              <a
-                className="text-white hover:bg-yellow-400 hover:text-green-950 transition-colors bg-green-700  flex justify-center items-center ease-in duration-300 rounded-full p-3"
-                href="mailto:namhoai2102@gmail.com"
-              >
-                <Mail className="size-5" />
-              </a>
-              <a
-                className="text-white hover:bg-yellow-400 hover:text-green-950 transition-colors bg-green-700  flex justify-center items-center ease-in duration-300 rounded-full p-3"
-                href="tel:+84325024277"
-              >
-                <Phone className="size-5" />
-              </a>
-              <a
-                className="text-white hover:bg-yellow-400 hover:text-green-950 transition-colors bg-green-700  flex justify-center items-center ease-in duration-300 rounded-full p-3"
-                href="https://web.telegram.org/a/#5524663622"
-              >
-                <Send className="size-5" />
-              </a>
+              {socialItems.map((item) => {
+                return (
+                  <a
+                    key={item.name}
+                    className="text-white hover:bg-yellow-400 hover:text-green-950 transition-colors bg-green-700  flex justify-center items-center ease-in duration-300 rounded-full p-3"
+                    href={item.link}
+                  >
+                    {item.icon}
+                  </a>
+                );
+              })}
             </div>
           </div>
         </div>
@@ -237,11 +183,7 @@ export default function Header() {
           {/* Navigation Links */}
           <nav className="hidden xl:flex items-center space-x-8">
             {navItems.map((item, index) => (
-              <Link
-                to={item.to}
-                key={`${item.name}-${index}`}
-                className="text-gray-800 hover:text-green-600 transition-colors"
-              >
+              <Link to={item.to} key={`${item.name}-${index}`} className="link">
                 {item.name}
               </Link>
             ))}

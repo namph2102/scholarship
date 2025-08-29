@@ -11,6 +11,7 @@ import type { Route } from "./+types/root";
 import "./app.css";
 import Header from "./layouts/header";
 import { generateMeta } from "./utils/heldper/generate-meta";
+import Footer from "./layouts/footer";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -45,7 +46,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
       </head>
       <body>
         <Header />
-        {children}
+        <main>{children}</main>
+        <Footer />
         <ScrollRestoration />
         <Scripts />
       </body>

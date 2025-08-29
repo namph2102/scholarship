@@ -54,8 +54,9 @@ body {
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  --template-color: #ffc107;
+  --base-color: #1e2939;
 }
-
 :root {
   --radius: 0.625rem;
   --background: oklch(1 0 0);
@@ -141,4 +142,61 @@ body {
   #menu:checked ~ .nav-menu {
     @apply translate-x-0 block;
   }
+}
+.link {
+  color: var(--base-color);
+}
+a.link {
+  position: relative;
+  font-size: 16px;
+  line-height: 24px;
+  text-decoration: none;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 8px;
+  outline: 0px;
+  border: 0px;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+a.link:before {
+  left: 50%;
+  @apply ease-in duration-300;
+}
+a.link:hover:before {
+  width: 50%;
+  left: 0%;
+}
+
+a.link:after {
+  content: "";
+  position: absolute;
+  right: 50%;
+  @apply ease-in duration-300;
+}
+a.link:hover:after {
+  width: 50%;
+  right: 0%;
+}
+
+a.link:hover:before,
+a.link:hover:after {
+  background-color: var(--template-color);
+}
+a.link:hover {
+  color: var(--template-color);
+}
+a.link:before,
+a.link:after {
+  bottom: 0;
+  width: 0px;
+  height: 2px;
+  content: "";
+  position: absolute;
 }
