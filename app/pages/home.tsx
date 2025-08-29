@@ -1,3 +1,5 @@
 export default function Home() {
-  return <div>Home</div>;
+  return (
+    <div className="h-[80vh] container mx-auto my-4">Content Home Route</div>
+  );
 }
