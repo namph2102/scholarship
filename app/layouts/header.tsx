@@ -77,7 +77,7 @@ function NavbarMobile() {
             {/* register Now Button */}
             <div className="mb-8">
               <button className="w-full bg-yellow-400 text-gray-800 py-4 px-6 rounded-lg hover:bg-yellow-500 transition-colors flex items-center justify-center space-x-2 font-medium">
-                <span>Đăng ký tư vấn</span>
+                <span>Liên hệ ngay</span>
                 <Headphones className="size-4" />
               </button>
             </div>
@@ -194,7 +194,7 @@ export default function Header() {
           <div className="flex items-center space-x-6">
             {/* Donate Now Button */}
             <button className="bg-green-800 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition-colors flex items-center space-x-2">
-              <span>Đăng ký tư vấn</span>
+              <span>Liên hệ ngay</span>
               <Headphones className="size-4" />
             </button>
             <label htmlFor="menu" className="xl:hidden cursor-pointer">

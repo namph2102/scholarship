@@ -2,27 +2,14 @@ export const contactInfo = {
   address: "127 Đông Hưng Thuận, Quận 12, Hồ Chí Minh, Việt Nam",
   email: "namph2102@gmail.com",
   phone: "0877 666 9990",
-  title: "New life",
-  subtitle: "Du học trong tầm tay",
+  title: "Bất động sản Nam Hoài",
+  subtitle:
+    "Chuyên mô giới bất động sản vị trí đẹp, giá rẻ, mau sinh lời nhất Lâm Đồng",
 };
 export const navItems = [
   {
     name: "Trang chủ",
     to: "/",
-  },
-
-  {
-    name: "Chương trình học",
-    to: "/about",
-  },
-
-  {
-    name: "Lý do",
-    to: "/causes",
-  },
-  {
-    name: "FAQ",
-    to: "/faq",
   },
   {
     name: "Về chúng tôi",
